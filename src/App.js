@@ -1,17 +1,16 @@
-import './App.css';
+import Video from './components/Video';
+import './App.css'
 
 function App() {
-  let name = 'i love you programing';
-  document.addEventListener('click',function(){
-   let a = document.querySelector('h1').innerText;
-   console.log(a);
-  });
-  console.log('helllo');
-  return (
-    <div className="App">
-     <h1>{name}</h1>
-    </div>
-  );
+ return(
+  <>
+  <div className="App">
+   <div>Videos</div>
+  <Video channel="Coder Dost" views="10K" time="1 year ago" title="React js"/>
+  <Video channel="Coder Dost" views="30K" time="2 year ago" title="JavaScript"/>
+  </div>
+  </>
+ );
 }
 
 export default App;
