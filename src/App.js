@@ -1,20 +1,15 @@
 import Video from './components/Video';
 import './App.css'
+import videos from './data'
 
 function App() {
-  let obj  = {
-    channel : "Coder Dost",
-    views : "100K",
-    time : "4 year ago",
-    title : "Golang"
-  }
  return(
   <>
   <div className="App">
    <div>Videos</div>
-   <Video {...obj}/>
-  <Video channel="Coder Dost" views="10K" time="1 year ago" title="React js"/>
-  <Video channel="Coder Dost" views="30K" time="2 year ago" title="JavaScript"/>
+   {
+    videos.map(video => <Video key={video.id} channel={video.title} views={video.views} time={video.time} title={video.title} verified={video.verified} id={video.id}/>)
+   }
   </div>
   </>
  );
