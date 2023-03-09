@@ -2,6 +2,7 @@ import React, { Children } from 'react'
 import './Video.css'
 // rfce
 function Video({title,channel,views,time,verified,id,children}) {
+  console.log('video render')
   return (
     <>
     <div className='contanner'>
