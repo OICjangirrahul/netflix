@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { Children } from 'react'
 import './Video.css'
 // rfce
-function Video({title,channel,views,time,verified,id}) {
+function Video({title,channel,views,time,verified,id,children}) {
   return (
     <>
     <div className='contanner'>
@@ -11,6 +11,7 @@ function Video({title,channel,views,time,verified,id}) {
     <div className='title'>{title}</div>
     <div className='channel'>{channel} {verified ? '✅' : ''} </div>
     <div className='views'>{views} <span>{time}</span></div>
+    <div>{children}</div>
     </div>
     </>
   )

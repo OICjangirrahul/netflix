@@ -23,30 +23,6 @@ let videos  = [
     title : "React.js",
     verified : true
   },
-  {
-    id : 4,
-    channel : "Coder Dost",
-    views : "400K",
-    time : "4 year ago",
-    title : "AWS",
-    verified : false
-  },
-  {
-    id : 5,
-    channel : "Coder Dost",
-    views : "400K",
-    time : "4 year ago",
-    title : "AWS",
-    verified : false
-  },
-  {
-    id : 6,
-    channel : "Coder Dost",
-    views : "400K",
-    time : "4 year ago",
-    title : "AWS",
-    verified : false
-  },
 ]
 
 export default videos
