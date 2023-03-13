@@ -1,0 +1,8 @@
+.AddVideo * {
+display: block;
+margin: 10px auto;
+}
+
+.AddVideo {
+    margin-top: 100px;
+}

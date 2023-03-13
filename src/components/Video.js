@@ -12,7 +12,7 @@ function Video({title,channel,views,time,verified,id,children}) {
     <div className='title'>{title}</div>
     <div className='channel'>{channel} {verified ? '✅' : ''} </div>
     <div className='views'>{views} <span>{time}</span></div>
-    <div>{children}</div>
+    {/* <div>{children}</div> */}
     </div>
     </>
   )

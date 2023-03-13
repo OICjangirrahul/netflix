@@ -2,11 +2,19 @@ import Video from './components/Video';
 import './App.css'
 import videoDB from './data'
 import PlayButton from './components/PlayButton';
-import Counter from './components/counter';
+// import Counter from './components/counter';
 import { useState } from 'react';
+import AddVideo from './components/AddVideo';
 
 function App() {
     const [videos,setVideos] = useState(videoDB);
+
+    function addVideos(video){
+        setVideos([
+            ...videos,
+            {...video, id: videos.length+1}
+        ]);   
+    }
  return(
   <>
   <div className="App" onClick={()=>console.log('hello')}>
@@ -16,18 +24,9 @@ function App() {
    }
    </div>
    <div>
-    <Counter>Add</Counter>
+    {/* <Counter>Add</Counter> */}
     <div>
-    <button onClick={()=>{
-        setVideos([...videos,{
-            id : videos.length + 1,
-            channel : "Coder Dost",
-            views : "300K",
-            time : "4 year ago",
-            title : "React.js",
-            verified : true
-          }])
-    }}>addVideo</button>
+    <AddVideo addVideos={addVideos}></AddVideo>
   </div>
    {/* <PlayButton name='helllo2' onClick={()=>alert('aaa')}>react.js</PlayButton> */}
    </div>
