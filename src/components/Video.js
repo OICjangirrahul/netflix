@@ -6,6 +6,7 @@ function Video({title,channel,views,time,verified,id,children}) {
   return (
     <>
     <div className='contanner'>
+    {/* <button className='close' onClick={()=>deleteVideo(id)}>X</button> */}
     <div className='pic'>
     <img src={`https://picsum.photos/id/${id}/160/90`} alt="" />
     </div>
