@@ -1,9 +1,10 @@
 import './App.css'
 import videoDB from './data'
 // import Counter from './components/counter';
-import { useReducer, useState } from 'react';
+import { useContext, useReducer, useState } from 'react';
 import AddVideo from './components/AddVideo';
 import VideoList from './components/VideoList';
+import ThemeContext from './context/ThemeContext';
 
 function App() {
     const [editableVideo,setEditableVideo] = useState(null);
@@ -29,44 +30,28 @@ function App() {
     // const [videos,setVideos] = useState(videoDB);
     const [videos,dispatch] = useReducer(videoReducer,videoDB)
 
-   
+   const themContext = useContext(ThemeContext);
 
-    function addVideos(video){
-        dispatch({type:'ADD',payload:video})
-        // setVideos([
-        //     ...videos,
-        //     {...video, id: videos.length+1}
-        // ]);   
-    }
 
-    function deleteVideo(id){
-        dispatch({type:'DELETE',payload:id})
-    //   setVideos(videos.filter(video=>video.id!==id))
-    }
+
+
 
     function editVideo(id){
         setEditableVideo(videos.find(video=>video.id===id))
     }
-    function updateVideo(video){
-        dispatch({type:'UPDATE',payload:video})
-        // const index = videos.findIndex(v=>v.id===video.id)
-        // const newVideos = [...videos]
-        // newVideos.splice(index,1,video)
-        // setVideos(newVideos)
-    }
-
+  
     
 
  return(
   <>
   <div className="App" onClick={()=>console.log('hello')}>
    <div className='f-app'>Videos
-   <VideoList videos={videos} 　deleteVideo={deleteVideo} editVideo={editVideo}></VideoList>
+   <VideoList videos={videos} 　dispatch={dispatch} editVideo={editVideo}></VideoList>
    </div>
    <div>
     {/* <Counter>Add</Counter> */}
     <div>
-    <AddVideo addVideos={addVideos} updateVideo={updateVideo} editableVideo={editableVideo}></AddVideo>
+    <AddVideo dispatch={dispatch}  editableVideo={editableVideo}></AddVideo>
   </div>
    {/* <PlayButton name='helllo2' onClick={()=>alert('aaa')}>react.js</PlayButton> */}
    </div>
