@@ -1,9 +1,16 @@
 .App {
   text-align: center;
-  background-color: #3a4042;
   height: 100vh;
 }
 
 .f-app{
   display: flex;
+}
+ 
+.darkmode{
+  background-color: #3a4042;
+}
+
+.lightmode{
+  background-color: aliceblue;
 }

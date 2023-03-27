@@ -1,13 +1,14 @@
 import './App.css'
 import videoDB from './data'
 // import Counter from './components/counter';
-import { useContext, useReducer, useState } from 'react';
+import {  useReducer, useState } from 'react';
 import AddVideo from './components/AddVideo';
 import VideoList from './components/VideoList';
 import ThemeContext from './context/ThemeContext';
 
 function App() {
     const [editableVideo,setEditableVideo] = useState(null);
+    const [mode,setMode] = useState('darkmode')
     function videoReducer(videos,action){
         switch(action.type){
             case  'ADD':
@@ -30,21 +31,16 @@ function App() {
     // const [videos,setVideos] = useState(videoDB);
     const [videos,dispatch] = useReducer(videoReducer,videoDB)
 
-   const themContext = useContext(ThemeContext);
-
-
-
-
-
+//    const themContext = useContext(ThemeContext);
+//    console.log(themContext)
     function editVideo(id){
         setEditableVideo(videos.find(video=>video.id===id))
     }
-  
-    
-
  return(
   <>
-  <div className="App" onClick={()=>console.log('hello')}>
+  <ThemeContext.Provider value={mode}>
+  <div className={`App ${mode}`} onClick={()=>console.log('hello')}>
+    <button onClick={()=>setMode(mode === 'darkmode' ? 'lightmode' : 'darkmode')}>THEM CHANGE</button>
    <div className='f-app'>Videos
    <VideoList videos={videos} 　dispatch={dispatch} editVideo={editVideo}></VideoList>
    </div>
@@ -56,6 +52,7 @@ function App() {
    {/* <PlayButton name='helllo2' onClick={()=>alert('aaa')}>react.js</PlayButton> */}
    </div>
   </div>
+  </ThemeContext.Provider>
   </>
  );
 }
